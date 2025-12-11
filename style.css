@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 :root {
-    /* Default Dark Mode Colors */
     --color-bg: #0f0f11;
     --color-text: #e2e2e6;
     --color-secondary: #a1a1aa;
@@ -153,15 +152,30 @@ h4 {
 section {
     margin-bottom: var(--spacing-xl);
     padding-top: var(--spacing-xl);
-    border-top: 1px solid var(--color-border);
     max-width: var(--max-width-content);
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: var(--max-width-content);
+    border-top: 1px solid var(--color-border);
+    margin: 0 auto;
 }
 
 section:first-of-type {
     padding-top: 0;
-    border-top: none;
+}
+
+section:first-of-type::before {
+    display: none;
 }
 
 #projects {
@@ -257,7 +271,6 @@ li {
     margin-top: var(--spacing-md);
 }
 
-/* Shared styles for bordered elements (Tags, Buttons, Socials) */
 .tags span,
 .project-buttons a,
 .socials a {
@@ -322,7 +335,6 @@ footer .socials {
     margin-top: 0;
 }
 
-/* 404 Page Styles */
 .error-page {
     display: flex;
     flex-direction: column;
@@ -339,8 +351,11 @@ footer .socials {
 
 .error-page section {
     text-align: center;
-    border-top: none;
     padding-top: 0;
+}
+
+.error-page section::before {
+    display: none;
 }
 
 .error-page .message {
@@ -364,7 +379,6 @@ footer .socials {
     border-color: var(--color-text);
 }
 
-/* Custom Scrollbar */
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--color-secondary) var(--color-bg);
