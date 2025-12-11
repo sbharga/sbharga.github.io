@@ -1,222 +1,291 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 :root {
-  --color-bg: rgb(240, 239, 234);
-  --color-text: rgb(20, 20, 19);
-  --color-secondary: rgb(80, 80, 80);
-  --color-border: rgba(20, 20, 19, 0.2);
+    --color-bg: rgb(240, 239, 234);
+    --color-text: rgb(20, 20, 19);
+    --color-secondary: rgb(80, 80, 80);
+    --color-border: rgba(20, 20, 19, 0.2);
+    --color-hover-bg: rgba(20, 20, 19, 0.05);
+    --color-shadow: rgba(20, 20, 19, 0.1);
+
+    --spacing-xs: 0.25em;
+    --spacing-sm: 0.5em;
+    --spacing-md: 1em;
+    --spacing-lg: 1.5em;
+    --spacing-xl: 2.5em;
+
+    --font-size-sm: 0.9em;
+    --font-size-base: 1em;
+    --font-size-lg: 1.1em;
+    --font-size-xl: 1.2em;
+    --font-size-2xl: 1.5em;
+    --font-size-3xl: 2.5em;
+
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+
+    --transition-base: all 0.2s ease;
+
+    --max-width-content: 750px;
+    --max-width-wide: 1200px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-  padding: 2.5em 1em;
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: var(--spacing-xl) var(--spacing-md);
 }
 
 header,
 footer {
-  max-width: 750px;
-  margin: 0 auto;
+    max-width: var(--max-width-content);
+    margin: 0 auto;
 }
 
 h1 {
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 1em;
+    text-align: center;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
 }
 
 h2 {
-  font-size: 1.5em;
-  margin-bottom: 1em;
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
 }
 
 h3 {
-  font-size: 1.2em;
+    font-size: var(--font-size-xl);
 }
 
 h4 {
-  font-size: 1.1em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
 }
 
 section {
-  margin-bottom: 2.5em;
-  padding-top: 2.5em;
-  border-top: 1px solid var(--color-border);
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#projects {
-  max-width: 1200px;
-}
-
-/* Smart divider: Make the section after projects wide to match the divider, 
-   but constrain its content */
-#projects + section {
-  max-width: 1200px;
-}
-
-#projects + section > * {
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section:first-of-type {
-  padding-top: 0;
-  border-top: none;
+    padding-top: 0;
+    border-top: none;
+}
+
+#projects {
+    max-width: var(--max-width-wide);
+}
+
+#projects + section {
+    max-width: var(--max-width-wide);
+}
+
+#projects + section > * {
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .item {
-  margin-bottom: 1.5em;
+    margin-bottom: var(--spacing-lg);
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1100px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project-card {
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.5em;
-  transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    transition: var(--transition-base);
 }
 
 .project-card:hover {
-  border-color: var(--color-text);
-  box-shadow: 0 4px 12px rgba(20, 20, 19, 0.1);
+    border-color: var(--color-text);
+    box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .project-card h3 {
-  margin-bottom: 0.5em;
+    margin-bottom: var(--spacing-sm);
 }
 
 .project-card .secondary {
-  display: block;
-  margin-bottom: 1em;
+    display: block;
+    margin-bottom: var(--spacing-md);
 }
 
 .project-card ul {
-  margin-bottom: 1em;
+    margin-bottom: var(--spacing-md);
 }
 
 .item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
 .secondary {
-  font-size: 0.9em;
-  font-weight: normal;
-  color: var(--color-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: normal;
+    color: var(--color-secondary);
 }
 
 ul {
-  list-style-position: inside;
-  padding-left: 0.5em;
-  margin-top: 0.5em;
+    list-style-position: inside;
+    padding-left: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
 }
 
 li {
-  margin-bottom: 0.25em;
+    margin-bottom: var(--spacing-xs);
 }
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
 }
 
 /* Shared styles for bordered elements (Tags, Buttons, Socials) */
 .tags span,
 .project-buttons a,
 .socials a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
-  padding: 0.5em 1em;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 0.9em;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  color: var(--color-text);
-  background-color: transparent; /* Explicit default */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    transition: var(--transition-base);
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: transparent;
 }
 
-/* Hover effect for bordered elements */
 .tags span:hover,
 .project-buttons a:hover,
 .socials a:hover {
-  background-color: rgba(20, 20, 19, 0.05);
-  border-color: var(--color-text);
-  cursor: default; /* Tags aren't links by default */
+    background-color: var(--color-hover-bg);
+    border-color: var(--color-text);
+}
+
+.tags span:hover {
+    cursor: default;
 }
 
 .project-buttons a:hover,
 .socials a:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .skill-group {
-  margin-bottom: 1.5em;
+    margin-bottom: var(--spacing-lg);
 }
 
 .project-buttons,
 .socials {
-  display: flex;
-  gap: 0.5em;
-  margin-top: 1em;
-  flex-wrap: wrap;
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
 }
 
 .project-buttons a svg,
 .socials a svg {
-  width: 1.2em;
-  height: 1.2em;
+    width: var(--font-size-xl);
+    height: var(--font-size-xl);
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2.5em;
-  padding-top: 2.5em;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-secondary);
 }
 
 footer .socials {
-  margin-top: 0;
+    margin-top: 0;
+}
+
+/* 404 Page Styles */
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2em;
+}
+
+.error-page main {
+    width: 100%;
+    max-width: 600px;
+}
+
+.error-page section {
+    text-align: center;
+    border-top: none;
+    padding-top: 0;
+}
+
+.error-page .message {
+    margin-bottom: 2em;
+}
+
+.error-page .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.75em 1.5em;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition-base);
+}
+
+.error-page .back-button:hover {
+    background-color: var(--color-hover-bg);
+    border-color: var(--color-text);
 }
