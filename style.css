@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 :root {
-    --color-bg: rgb(240, 239, 234);
-    --color-text: rgb(20, 20, 19);
-    --color-secondary: rgb(80, 80, 80);
-    --color-border: rgba(20, 20, 19, 0.2);
-    --color-hover-bg: rgba(20, 20, 19, 0.05);
-    --color-shadow: rgba(20, 20, 19, 0.1);
+    /* Default Dark Mode Colors */
+    --color-bg: #0f0f11;
+    --color-text: #e2e2e6;
+    --color-secondary: #a1a1aa;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-hover-bg: rgba(255, 255, 255, 0.08);
+    --color-shadow: rgba(0, 0, 0, 0.4);
 
     --spacing-xs: 0.25em;
     --spacing-sm: 0.5em;
@@ -15,7 +16,6 @@
     --spacing-xl: 2.5em;
 
     --font-size-sm: 0.9em;
-    --font-size-base: 1em;
     --font-size-lg: 1.1em;
     --font-size-xl: 1.2em;
     --font-size-2xl: 1.5em;
@@ -25,9 +25,64 @@
     --border-radius-md: 12px;
 
     --transition-base: all 0.2s ease;
+    --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
 
     --max-width-content: 750px;
     --max-width-wide: 1200px;
+}
+
+[data-theme="light"] {
+    --color-bg: rgb(240, 239, 234);
+    --color-text: rgb(20, 20, 19);
+    --color-secondary: rgb(80, 80, 80);
+    --color-border: rgba(20, 20, 19, 0.2);
+    --color-hover-bg: rgba(20, 20, 19, 0.05);
+    --color-shadow: rgba(20, 20, 19, 0.1);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-base);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        text-align: left;
+        font-size: 2em;
+    }
+
+    .theme-toggle {
+        position: static;
+        padding: 0;
+        margin-bottom: var(--spacing-xl);
+    }
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-hover-bg);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
 }
 
 * {
@@ -47,7 +102,25 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     padding: var(--spacing-xl) var(--spacing-md);
+    transition: var(--transition-theme);
 }
+
+#sun-icon {
+    display: block;
+}
+
+#moon-icon {
+    display: none;
+}
+
+[data-theme="light"] #sun-icon {
+    display: none;
+}
+
+[data-theme="light"] #moon-icon {
+    display: block;
+}
+
 
 header,
 footer {
@@ -64,6 +137,7 @@ h1 {
 h2 {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-md);
+    text-align: center;
 }
 
 h3 {
@@ -94,11 +168,11 @@ section:first-of-type {
     max-width: var(--max-width-wide);
 }
 
-#projects + section {
+#projects+section {
     max-width: var(--max-width-wide);
 }
 
-#projects + section > * {
+#projects+section>* {
     max-width: var(--max-width-content);
     margin-left: auto;
     margin-right: auto;
@@ -288,4 +362,28 @@ footer .socials {
 .error-page .back-button:hover {
     background-color: var(--color-hover-bg);
     border-color: var(--color-text);
+}
+
+/* Custom Scrollbar */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secondary) var(--color-bg);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    border: 3px solid var(--color-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-text);
 }
