@@ -1,0 +1,17 @@
+title: Shreyas' Portfolio
+description: Portfolio website for Shreyas Bhargava
+author: Shreyas Bhargava
+
+# GitHub Pages uses kramdown by default
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - README.md
+  - LICENSE
+  - DEVELOPMENT.md
+  - index.html.backup
