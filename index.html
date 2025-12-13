@@ -1,732 +1,667 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Shreyas' Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.png" />
-    <script>
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <nav class="navbar">
-        <button class="hamburger btn-base" aria-label="Toggle menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-        </div>
-        <button
-          id="theme-toggle"
-          class="theme-toggle btn-base"
-          aria-label="Toggle theme"
-        >
-          <svg
-            id="moon-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3zm3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31"
-            />
-          </svg>
-          <svg
-            id="sun-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"
-            />
-          </svg>
-        </button>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1>Shreyas' Portfolio</h1>
-      </section>
-
-      <section id="about">
-        <p>
-          Hi, I'm Shreyas 👋! I'm a sophomore in computer engineering at the
-          University of Maryland. I'm currently seeking an internship for Summer
-          2026. I'm interested in <b>FPGA design</b> and
-          <b>embedded systems</b>. Check out my projects!
-        </p>
-      </section>
-
-      <section id="education">
-        <h2>Education</h2>
-        <div class="item">
-          <div class="item-header">
-            <h3>
-              University of Maryland
-              <span class="secondary">(College Park, MD)</span>
-            </h3>
-            <span class="secondary">August 2024 - Present</span>
-          </div>
-          <p class="secondary" style="font-size: var(--font-size-lg)">
-            Bachelor of Science, Computer Engineering
-          </p>
-          <div class="tags">
-            <span class="pill">Object Oriented Programming</span>
-            <span class="pill">Computer Systems</span>
-            <span class="pill">Discrete Structures</span>
-            <span class="pill">Programming Languages</span>
-            <span class="pill">Linear Algebra</span>
-            <span class="pill">Differential Equations</span>
-            <span class="pill">Multivariable Calculus</span>
-            <span class="pill">Electric Circuits</span>
-            <span class="pill">Micro and Nanoelectronics</span>
-            <span class="pill">Discrete Signal Analysis</span>
-            <span class="pill">Digital Logic Design</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience">
-        <h2>Work Experience</h2>
-
-        <div class="timeline">
-          <div class="timeline-item" data-modal="experience-1">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">May 2025 - Aug 2025</div>
-              <h3>Research Assistant</h3>
-              <p class="timeline-company">
-                University of Maryland Department of Environmental Science and
-                Technology
-              </p>
-              <button
-                class="timeline-button btn-base btn-bordered"
-                aria-label="View details for Research Assistant position"
-              >
-                View Details
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-modal="experience-2">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Aug 2023 - Aug 2024</div>
-              <h3>Mathematics Tutor</h3>
-              <p class="timeline-company">Mathnasium</p>
-              <button
-                class="timeline-button btn-base btn-bordered"
-                aria-label="View details for Mathematics Tutor position"
-              >
-                View Details
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-modal="experience-3">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Jun 2020 - Aug 2021</div>
-              <h3>IT Consultant</h3>
-              <p class="timeline-company">Ideacog LLC</p>
-              <button
-                class="timeline-button btn-base btn-bordered"
-                aria-label="View details for IT Consultant position"
-              >
-                View Details
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="item-header">
-              <h3>
-                Personal Portfolio Website
-                <a
-                  href="https://github.com/sbharga/sbharga.github.io"
-                  target="_blank"
-                  class="project-link icon-link"
-                  aria-label="View source code for Personal Portfolio"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://shreyas.com"
-                  target="_blank"
-                  class="project-link icon-link"
-                  aria-label="View live site"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"
-                    />
-                  </svg>
-                </a>
-              </h3>
-              <span class="secondary">November 2025 - Present</span>
-            </div>
-            <ul>
-              <li>
-                Designed and built responsive portfolio website from scratch
-                using semantic HTML5, modern CSS, and vanilla JavaScript
-              </li>
-              <li>
-                Implemented dark/light theme toggle with persistent user
-                preferences using localStorage API
-              </li>
-              <li>
-                Created accessible, mobile-first design with custom animations
-                and smooth scrolling navigation
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">HTML/CSS</span>
-              <span class="pill">JavaScript</span>
-              <span class="pill">Responsive Design</span>
-              <span class="pill">Git</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="item-header">
-              <h3>AI-Powered Worksheet Generator for K-12 Education</h3>
-              <span class="secondary">May 2024 - Present</span>
-            </div>
-            <ul>
-              <li>
-                Building full-stack application with FastAPI backend and React
-                frontend to automate worksheet creation for teachers
-              </li>
-              <li>
-                Implemented Retrieval-Augmented Generation (RAG) architecture to
-                optimize LLM responses for educational content
-              </li>
-              <li>
-                Engineered prompt templates to generate age-appropriate,
-                hallucination-free, curriculum-aligned worksheets
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">Python</span>
-              <span class="pill">FastAPI</span>
-              <span class="pill">React</span>
-              <span class="pill">TypeScript</span>
-              <span class="pill">PostgreSQL</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="item-header">
-              <h3>Edge AI Image Classification with Jetson Nano</h3>
-              <span class="secondary">Aug 2025 - Present</span>
-            </div>
-            <ul>
-              <li>
-                Deployed LLaVA vision language model locally on NVIDIA Jetson
-                Nano using Ollama for real-time image classification
-              </li>
-              <li>
-                Implemented privacy-focused edge (local) computing solution
-                eliminating need for cloud-based image processing
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">Python</span>
-              <span class="pill">Ollama</span>
-              <span class="pill">Linux</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="item-header">
-              <h3>Computer Vision Screw Sorting Robot</h3>
-              <span class="secondary">Aug 2024 - Dec 2024</span>
-            </div>
-            <ul>
-              <li>
-                Developed automated screw sorting system using Raspberry Pi
-                (Python OpenCV) for vision and Arduino (C++) for motor control
-              </li>
-              <li>
-                Achieved 99% classification accuracy at 100 screws per minute by
-                implementing size-based computer vision algorithms
-              </li>
-              <li>
-                Led programming efforts in 4-person team and designed CAD models
-                in Fusion 360 for 3D-printed sorting mechanism
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">Python</span>
-              <span class="pill">OpenCV</span>
-              <span class="pill">C++</span>
-              <span class="pill">Arduino</span>
-              <span class="pill">Raspberry Pi</span>
-              <span class="pill">CAD</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="item-header">
-              <h3>Automated Discord Support Bot</h3>
-              <span class="secondary">Jan 2023 - Jan 2024</span>
-            </div>
-            <ul>
-              <li>
-                Developed Python bot using Discord API to automatically diagnose
-                and resolve common programming issues in help channels
-              </li>
-              <li>
-                Deployed across multiple servers including a 10,000+ member
-                programming community
-              </li>
-              <li>
-                Reduced support response time by pattern-matching user queries
-                against known solutions database
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">Python</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="item-header">
-              <h3>
-                Long-term Climate Change Analysis
-                <a
-                  href="https://github.com/sbharga/climate-change"
-                  target="_blank"
-                  class="project-link icon-link"
-                  aria-label="View source code for Long-term Climate Change Analysis"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
-                    />
-                  </svg>
-                </a>
-              </h3>
-              <span class="secondary">May 2023 - Aug 2023</span>
-            </div>
-            <ul>
-              <li>
-                Analyzed 70 years of daily weather data across 7 cities using
-                pandas with automated validation pipelines
-              </li>
-              <li>
-                Compared forecasting accuracy of multiple statistical models to
-                identify extreme temperature events
-              </li>
-              <li>
-                Authored research paper documenting statistically significant
-                increase in extreme temperature occurrences
-              </li>
-            </ul>
-            <div class="tags">
-              <span class="pill">Python</span>
-              <span class="pill">Pandas</span>
-              <span class="pill">NumPy</span>
-              <span class="pill">Matplotlib</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Skills</h2>
-
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="tags">
-            <span class="pill">Python</span>
-            <span class="pill">Java</span>
-            <span class="pill">Kotlin</span>
-            <span class="pill">TypeScript</span>
-            <span class="pill">HTML/CSS</span>
-            <span class="pill">C/C++</span>
-            <span class="pill">MATLAB</span>
-            <span class="pill">x86-64 Assembly</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Frameworks & Libraries</h3>
-          <div class="tags">
-            <span class="pill">PyTorch</span>
-            <span class="pill">React</span>
-            <span class="pill">FastAPI</span>
-            <span class="pill">OpenCV</span>
-            <span class="pill">Pandas</span>
-            <span class="pill">NumPy</span>
-            <span class="pill">Matplotlib</span>
-            <span class="pill">Numba</span>
-            <span class="pill">Tailwind CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Tools & Platforms</h3>
-          <div class="tags">
-            <span class="pill">Git</span>
-            <span class="pill">AWS</span>
-            <span class="pill">PostgreSQL</span>
-            <span class="pill">Linux/UNIX</span>
-            <span class="pill">Arduino</span>
-            <span class="pill">Raspberry Pi</span>
-            <span class="pill">Ollama</span>
-            <span class="pill">Typst</span>
-            <span class="pill">CAD (Fusion 360)</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Awards</h3>
-          <div class="tags">
-            <span class="pill"
-              >BGE Scholarship for Best Engineering Project</span
-            >
-            <span class="pill">AP Scholar with Distinction x2</span>
-            <span class="pill">PTC Hackathon Finalist</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Modals -->
-      <div id="experience-1" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-          <button class="modal-close btn-base" aria-label="Close modal">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
-              />
-            </svg>
-          </button>
-          <div class="modal-header">
-            <h3>Research Assistant</h3>
-            <p class="modal-company">
-              University of Maryland Department of Environmental Science and
-              Technology <span class="secondary">(College Park, MD)</span>
-            </p>
-            <p class="modal-date">May 2025 - Aug 2025</p>
-          </div>
-          <div class="modal-body">
-            <ul>
-              <li>
-                Optimized HAMSTER atmospheric heat and moisture tracking
-                framework, reducing runtime by 75% to enable real-time analysis
-                capabilities
-              </li>
-              <li>
-                Refactored a Python-based data pipeline into PyTorch to enable
-                CUDA acceleration, significantly improving the processing speed
-                of millions of FLEXPART binary files and large gridded datasets
-              </li>
-              <li>
-                Enhanced source-receptor modeling performance by optimizing
-                attribution and bias-correction algorithms
-              </li>
-              <li>
-                Presented research findings at UMD's Summer Undergraduate
-                Research Conference
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div id="experience-2" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-          <button class="modal-close btn-base" aria-label="Close modal">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
-              />
-            </svg>
-          </button>
-          <div class="modal-header">
-            <h3>Mathematics Tutor</h3>
-            <p class="modal-company">
-              Mathnasium <span class="secondary">(Clarksville, MD)</span>
-            </p>
-            <p class="modal-date">Aug 2023 - Aug 2024</p>
-          </div>
-          <div class="modal-body">
-            <ul>
-              <li>
-                Tutored students ages 5-17 in mathematics ranging from basic
-                arithmetic through calculus
-              </li>
-              <li>
-                Collaborated with teaching team to develop individualized
-                learning strategies
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div id="experience-3" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-          <button class="modal-close btn-base" aria-label="Close modal">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
-              />
-            </svg>
-          </button>
-          <div class="modal-header">
-            <h3>IT Consultant</h3>
-            <p class="modal-company">
-              Ideacog LLC <span class="secondary">(Columbia, MD)</span>
-            </p>
-            <p class="modal-date">Jun 2020 - Aug 2021</p>
-          </div>
-          <div class="modal-body">
-            <ul>
-              <li>
-                Developed Python automation scripts for domain information
-                scraping and data validation
-              </li>
-              <li>
-                Eliminated 600+ hours of manual data entry through workflow
-                automation
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Return to Top Button -->
-    <button id="back-to-top" class="fab" aria-label="Back to top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-      </svg>
-    </button>
+        <title>Shreyas' Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="favicon.png" />
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <nav class="navbar">
+                <button class="hamburger btn-base" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                </div>
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle btn-base"
+                    aria-label="Toggle theme"
+                >
+                    <svg
+                        id="moon-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3zm3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31"
+                        />
+                    </svg>
+                    <svg
+                        id="sun-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"
+                        />
+                    </svg>
+                </button>
+            </nav>
+        </header>
 
-    <footer>
-      <div id="copyright">
-        <p>&copy; 2025 Shreyas Bhargava</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="https://github.com/sbharga/" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/shreyas-bhargava/" target="_blank"
-          >LinkedIn</a
-        >
-      </nav>
-    </footer>
-    <script>
-      const toggleButton = document.getElementById("theme-toggle");
-      const html = document.documentElement;
+        <main>
+            <section class="hero">
+                <h1>Shreyas' Portfolio</h1>
+            </section>
 
-      toggleButton.addEventListener("click", () => {
-        const currentTheme = html.getAttribute("data-theme");
-        if (currentTheme === "light") {
-          html.removeAttribute("data-theme");
-          localStorage.setItem("theme", "dark");
-        } else {
-          html.setAttribute("data-theme", "light");
-          localStorage.setItem("theme", "light");
-        }
-      });
+            <section id="about">
+                <p>
+                    Hi, I'm Shreyas 👋! I'm a sophomore in computer engineering
+                    at the University of Maryland. I'm currently seeking an
+                    internship for Summer 2026. I'm interested in
+                    <b>FPGA design</b> and <b>embedded systems</b>. Check out my
+                    projects!
+                </p>
+            </section>
 
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
+            <section id="education">
+                <h2>Education</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>
+                            University of Maryland
+                            <span class="secondary">(College Park, MD)</span>
+                        </h3>
+                        <span class="secondary">August 2024 - Present</span>
+                    </div>
+                    <p class="secondary" style="font-size: var(--font-size-lg)">
+                        Bachelor of Science, Computer Engineering
+                    </p>
+                    <div class="tags">
+                        <span class="pill">Object Oriented Programming</span>
+                        <span class="pill">Computer Systems</span>
+                        <span class="pill">Discrete Structures</span>
+                        <span class="pill">Programming Languages</span>
+                        <span class="pill">Linear Algebra</span>
+                        <span class="pill">Differential Equations</span>
+                        <span class="pill">Multivariable Calculus</span>
+                        <span class="pill">Electric Circuits</span>
+                        <span class="pill">Micro and Nanoelectronics</span>
+                        <span class="pill">Discrete Signal Analysis</span>
+                        <span class="pill">Digital Logic Design</span>
+                    </div>
+                </div>
+            </section>
 
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+            <section id="experience">
+                <h2>Work Experience</h2>
 
-      // Close menu when clicking a link
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
-      });
+                <div class="timeline">
+                    <div class="timeline-item" data-modal="experience-1">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">May 2025 - Aug 2025</div>
+                            <h3>Research Assistant</h3>
+                            <p class="timeline-company">
+                                University of Maryland Department of
+                                Environmental Science and Technology
+                            </p>
+                            <button
+                                class="timeline-button btn-base btn-bordered"
+                                aria-label="View details for Research Assistant position"
+                            >
+                                View Details
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
 
-      // Modal functionality
-      const timelineButtons = document.querySelectorAll(".timeline-button");
-      const modals = document.querySelectorAll(".modal");
-      const modalCloses = document.querySelectorAll(".modal-close");
-      const modalOverlays = document.querySelectorAll(".modal-overlay");
+                    <div class="timeline-item" data-modal="experience-2">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Aug 2023 - Aug 2024</div>
+                            <h3>Mathematics Tutor</h3>
+                            <p class="timeline-company">Mathnasium</p>
+                            <button
+                                class="timeline-button btn-base btn-bordered"
+                                aria-label="View details for Mathematics Tutor position"
+                            >
+                                View Details
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
 
-      // Open modal
-      timelineButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const modalId = button
-            .closest(".timeline-item")
-            .getAttribute("data-modal");
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
-          }
-        });
-      });
+                    <div class="timeline-item" data-modal="experience-3">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Jun 2020 - Aug 2021</div>
+                            <h3>IT Consultant</h3>
+                            <p class="timeline-company">Ideacog LLC</p>
+                            <button
+                                class="timeline-button btn-base btn-bordered"
+                                aria-label="View details for IT Consultant position"
+                            >
+                                View Details
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      // Close modal function
-      const closeModal = (modal) => {
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-      };
+            <section id="projects">
+                <h2>Projects</h2>
 
-      // Close modal on X button click
-      modalCloses.forEach((close) => {
-        close.addEventListener("click", () => {
-          const modal = close.closest(".modal");
-          closeModal(modal);
-        });
-      });
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>
+                                Personal Portfolio Website
+                                <a
+                                    href="https://github.com/sbharga/sbharga.github.io"
+                                    target="_blank"
+                                    class="project-link icon-link"
+                                    aria-label="View source code for Personal Portfolio"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                                        />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://shreyas.com"
+                                    target="_blank"
+                                    class="project-link icon-link"
+                                    aria-label="View live site"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"
+                                        />
+                                    </svg>
+                                </a>
+                            </h3>
+                            <span class="secondary"
+                                >November 2025 - Present</span
+                            >
+                        </div>
+                        <ul>
+                            <li>
+                                Designed and built responsive portfolio website
+                                from scratch using semantic HTML5, modern CSS,
+                                and vanilla JavaScript
+                            </li>
+                            <li>
+                                Implemented dark/light theme toggle with
+                                persistent user preferences using localStorage
+                                API
+                            </li>
+                            <li>
+                                Created accessible, mobile-first design with
+                                custom animations and smooth scrolling
+                                navigation
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">HTML/CSS</span>
+                            <span class="pill">JavaScript</span>
+                            <span class="pill">Responsive Design</span>
+                            <span class="pill">Git</span>
+                        </div>
+                    </div>
 
-      // Close modal on overlay click
-      modalOverlays.forEach((overlay) => {
-        overlay.addEventListener("click", () => {
-          const modal = overlay.closest(".modal");
-          closeModal(modal);
-        });
-      });
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>
+                                AI-Powered Worksheet Generator for K-12
+                                Education
+                            </h3>
+                            <span class="secondary">May 2024 - Present</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Building full-stack application with FastAPI
+                                backend and React frontend to automate worksheet
+                                creation for teachers
+                            </li>
+                            <li>
+                                Implemented Retrieval-Augmented Generation (RAG)
+                                architecture to optimize LLM responses for
+                                educational content
+                            </li>
+                            <li>
+                                Engineered prompt templates to generate
+                                age-appropriate, hallucination-free,
+                                curriculum-aligned worksheets
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">Python</span>
+                            <span class="pill">FastAPI</span>
+                            <span class="pill">React</span>
+                            <span class="pill">TypeScript</span>
+                            <span class="pill">PostgreSQL</span>
+                        </div>
+                    </div>
 
-      // Close modal on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          modals.forEach((modal) => {
-            if (modal.classList.contains("active")) {
-              closeModal(modal);
-            }
-          });
-        }
-      });
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>
+                                Edge AI Image Classification with Jetson Nano
+                            </h3>
+                            <span class="secondary">Aug 2025 - Present</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Deployed LLaVA vision language model locally on
+                                NVIDIA Jetson Nano using Ollama for real-time
+                                image classification
+                            </li>
+                            <li>
+                                Implemented privacy-focused edge (local)
+                                computing solution eliminating need for
+                                cloud-based image processing
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">Python</span>
+                            <span class="pill">Ollama</span>
+                            <span class="pill">Linux</span>
+                        </div>
+                    </div>
 
-      // Back to top button
-      const backToTopButton = document.getElementById("back-to-top");
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>Computer Vision Screw Sorting Robot</h3>
+                            <span class="secondary">Aug 2024 - Dec 2024</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Developed automated screw sorting system using
+                                Raspberry Pi (Python OpenCV) for vision and
+                                Arduino (C++) for motor control
+                            </li>
+                            <li>
+                                Achieved 99% classification accuracy at 100
+                                screws per minute by implementing size-based
+                                computer vision algorithms
+                            </li>
+                            <li>
+                                Led programming efforts in 4-person team and
+                                designed CAD models in Fusion 360 for 3D-printed
+                                sorting mechanism
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">Python</span>
+                            <span class="pill">OpenCV</span>
+                            <span class="pill">C++</span>
+                            <span class="pill">Arduino</span>
+                            <span class="pill">Raspberry Pi</span>
+                            <span class="pill">CAD</span>
+                        </div>
+                    </div>
 
-      // Show/hide button based on scroll position
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTopButton.classList.add("visible");
-        } else {
-          backToTopButton.classList.remove("visible");
-        }
-      });
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>Automated Discord Support Bot</h3>
+                            <span class="secondary">Jan 2023 - Jan 2024</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Developed Python bot using Discord API to
+                                automatically diagnose and resolve common
+                                programming issues in help channels
+                            </li>
+                            <li>
+                                Deployed across multiple servers including a
+                                10,000+ member programming community
+                            </li>
+                            <li>
+                                Reduced support response time by
+                                pattern-matching user queries against known
+                                solutions database
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">Python</span>
+                        </div>
+                    </div>
 
-      // Scroll to top when clicked
-      backToTopButton.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-    </script>
-  </body>
+                    <div class="project-card">
+                        <div class="item-header">
+                            <h3>
+                                Long-term Climate Change Analysis
+                                <a
+                                    href="https://github.com/sbharga/climate-change"
+                                    target="_blank"
+                                    class="project-link icon-link"
+                                    aria-label="View source code for Long-term Climate Change Analysis"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                                        />
+                                    </svg>
+                                </a>
+                            </h3>
+                            <span class="secondary">May 2023 - Aug 2023</span>
+                        </div>
+                        <ul>
+                            <li>
+                                Analyzed 70 years of daily weather data across 7
+                                cities using pandas with automated validation
+                                pipelines
+                            </li>
+                            <li>
+                                Compared forecasting accuracy of multiple
+                                statistical models to identify extreme
+                                temperature events
+                            </li>
+                            <li>
+                                Authored research paper documenting
+                                statistically significant increase in extreme
+                                temperature occurrences
+                            </li>
+                        </ul>
+                        <div class="tags">
+                            <span class="pill">Python</span>
+                            <span class="pill">Pandas</span>
+                            <span class="pill">NumPy</span>
+                            <span class="pill">Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <div class="tags">
+                        <span class="pill">Python</span>
+                        <span class="pill">Java</span>
+                        <span class="pill">Kotlin</span>
+                        <span class="pill">TypeScript</span>
+                        <span class="pill">HTML/CSS</span>
+                        <span class="pill">C/C++</span>
+                        <span class="pill">MATLAB</span>
+                        <span class="pill">x86-64 Assembly</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="tags">
+                        <span class="pill">PyTorch</span>
+                        <span class="pill">React</span>
+                        <span class="pill">FastAPI</span>
+                        <span class="pill">OpenCV</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">NumPy</span>
+                        <span class="pill">Matplotlib</span>
+                        <span class="pill">Numba</span>
+                        <span class="pill">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Tools & Platforms</h3>
+                    <div class="tags">
+                        <span class="pill">Git</span>
+                        <span class="pill">AWS</span>
+                        <span class="pill">PostgreSQL</span>
+                        <span class="pill">Linux/UNIX</span>
+                        <span class="pill">Arduino</span>
+                        <span class="pill">Raspberry Pi</span>
+                        <span class="pill">Ollama</span>
+                        <span class="pill">Typst</span>
+                        <span class="pill">CAD (Fusion 360)</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Awards</h3>
+                    <div class="tags">
+                        <span class="pill"
+                            >BGE Scholarship for Best Engineering Project</span
+                        >
+                        <span class="pill">AP Scholar with Distinction x2</span>
+                        <span class="pill">PTC Hackathon Finalist</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Modals -->
+            <div id="experience-1" class="modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button
+                        class="modal-close btn-base"
+                        aria-label="Close modal"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="modal-header">
+                        <h3>Research Assistant</h3>
+                        <p class="modal-company">
+                            University of Maryland Department of Environmental
+                            Science and Technology
+                            <span class="secondary">(College Park, MD)</span>
+                        </p>
+                        <p class="modal-date">May 2025 - Aug 2025</p>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>
+                                Optimized HAMSTER atmospheric heat and moisture
+                                tracking framework, reducing runtime by 75% to
+                                enable real-time analysis capabilities
+                            </li>
+                            <li>
+                                Refactored a Python-based data pipeline into
+                                PyTorch to enable CUDA acceleration,
+                                significantly improving the processing speed of
+                                millions of FLEXPART binary files and large
+                                gridded datasets
+                            </li>
+                            <li>
+                                Enhanced source-receptor modeling performance by
+                                optimizing attribution and bias-correction
+                                algorithms
+                            </li>
+                            <li>
+                                Presented research findings at UMD's Summer
+                                Undergraduate Research Conference
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="experience-2" class="modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button
+                        class="modal-close btn-base"
+                        aria-label="Close modal"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="modal-header">
+                        <h3>Mathematics Tutor</h3>
+                        <p class="modal-company">
+                            Mathnasium
+                            <span class="secondary">(Clarksville, MD)</span>
+                        </p>
+                        <p class="modal-date">Aug 2023 - Aug 2024</p>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>
+                                Tutored students ages 5-17 in mathematics
+                                ranging from basic arithmetic through calculus
+                            </li>
+                            <li>
+                                Collaborated with teaching team to develop
+                                individualized learning strategies
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="experience-3" class="modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button
+                        class="modal-close btn-base"
+                        aria-label="Close modal"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="modal-header">
+                        <h3>IT Consultant</h3>
+                        <p class="modal-company">
+                            Ideacog LLC
+                            <span class="secondary">(Columbia, MD)</span>
+                        </p>
+                        <p class="modal-date">Jun 2020 - Aug 2021</p>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>
+                                Developed Python automation scripts for domain
+                                information scraping and data validation
+                            </li>
+                            <li>
+                                Eliminated 600+ hours of manual data entry
+                                through workflow automation
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Return to Top Button -->
+        <button id="back-to-top" class="fab" aria-label="Back to top">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    fill="currentColor"
+                    d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"
+                />
+            </svg>
+        </button>
+
+        <footer>
+            <div id="copyright">
+                <p>&copy; 2025 Shreyas Bhargava</p>
+            </div>
+            <nav class="footer-nav">
+                <a href="https://github.com/sbharga/" target="_blank">GitHub</a>
+                <a
+                    href="https://www.linkedin.com/in/shreyas-bhargava/"
+                    target="_blank"
+                    >LinkedIn</a
+                >
+            </nav>
+        </footer>
+    </body>
 </html>
