@@ -42,6 +42,36 @@
 
     /* Touch target minimum for accessibility */
     --touch-target-min: 44px;
+
+    /* Safe area insets for notched devices */
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+}
+
+/* System dark mode preference detection */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --color-bg: rgb(240, 239, 234);
+        --color-text: rgb(20, 20, 19);
+        --color-secondary: rgb(80, 80, 80);
+        --color-border: rgba(20, 20, 19, 0.2);
+        --color-hover-bg: rgba(20, 20, 19, 0.05);
+        --color-shadow: rgba(20, 20, 19, 0.1);
+        --color-bg-translucent: rgba(240, 239, 234, 0.85);
+    }
+}
+
+/* Force dark mode */
+[data-theme="dark"] {
+    --color-bg: #1a1a1c;
+    --color-text: #e2e2e6;
+    --color-secondary: #a1a1aa;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-hover-bg: rgba(255, 255, 255, 0.08);
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --color-bg-translucent: rgba(26, 26, 28, 0.85);
 }
 
 [data-theme="light"] {
@@ -98,8 +128,27 @@
     box-sizing: border-box;
 }
 
+/* Responsive media by default */
+img,
+picture,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inline SVGs should remain inline */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 /* Universal focus-visible styling */
@@ -120,8 +169,20 @@ body {
     line-height: 1.6;
     padding: var(--spacing-xl) var(--spacing-md);
     transition: var(--transition-theme);
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
+/* Ensure buttons and links have proper touch handling */
+button,
+a {
+    touch-action: manipulation;
+}
+
+/* Theme icons - default to dark mode (show sun to switch to light) */
 #sun-icon {
     display: block;
 }
@@ -130,12 +191,33 @@ body {
     display: none;
 }
 
+/* Light mode - show moon to switch to dark */
 [data-theme="light"] #sun-icon {
     display: none;
 }
 
 [data-theme="light"] #moon-icon {
     display: block;
+}
+
+/* Force dark mode icon display */
+[data-theme="dark"] #sun-icon {
+    display: block;
+}
+
+[data-theme="dark"] #moon-icon {
+    display: none;
+}
+
+/* System preference light mode (when no data-theme set) */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) #sun-icon {
+        display: none;
+    }
+
+    :root:not([data-theme]) #moon-icon {
+        display: block;
+    }
 }
 
 header,
@@ -856,6 +938,13 @@ footer {
 
 /* Tablet and Mobile Styles - Consolidated */
 @media (max-width: 768px) {
+    /* Full width content on mobile */
+    header,
+    footer,
+    section {
+        max-width: 100%;
+    }
+
     /* Mobile Navigation */
     .site-header {
         position: relative;
@@ -1298,4 +1387,248 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-text);
+}
+
+/* Tablet-specific styles (768px-1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Hover-only effects for devices with hover capability */
+@media (hover: hover) and (pointer: fine) {
+    .nav-links a:hover,
+    .footer-nav a:hover {
+        color: var(--color-secondary);
+        background-color: var(--color-hover-bg);
+    }
+
+    .project-card:hover {
+        border-color: var(--color-text);
+        background-color: var(--color-hover-bg);
+    }
+
+    .timeline-item:hover .timeline-marker {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 4px var(--color-hover-bg);
+    }
+
+    .timeline-item:hover .timeline-content {
+        background-color: var(--color-hover-bg);
+        border-color: var(--color-text);
+    }
+
+    .tags span:hover {
+        background-color: var(--color-hover-bg);
+        border-color: var(--color-secondary);
+    }
+}
+
+/* Remove hover effects on touch devices */
+@media (hover: none) {
+    .nav-links a:hover,
+    .footer-nav a:hover,
+    .project-card:hover,
+    .timeline-item:hover .timeline-marker,
+    .timeline-item:hover .timeline-content,
+    .tags span:hover {
+        background-color: transparent;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .project-card:hover,
+    .timeline-item:hover .timeline-content {
+        border-color: var(--color-border);
+    }
+
+    /* Add active states for touch feedback */
+    .nav-links a:active,
+    .footer-nav a:active,
+    .btn-base:active,
+    .icon-link:active {
+        background-color: var(--color-hover-bg);
+    }
+
+    .project-card:active {
+        background-color: var(--color-hover-bg);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .timeline-item:hover .timeline-marker {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: rgba(255, 255, 255, 0.3);
+    }
+
+    [data-theme="light"] {
+        --color-border: rgba(0, 0, 0, 0.4);
+    }
+
+    .pill,
+    .project-card,
+    .timeline-content,
+    .modal-content {
+        border-width: 2px;
+    }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-left: max(var(--spacing-md), var(--safe-area-left));
+        padding-right: max(var(--spacing-md), var(--safe-area-right));
+        padding-bottom: max(var(--spacing-xl), var(--safe-area-bottom));
+    }
+
+    .site-header {
+        padding-left: max(var(--spacing-md), var(--safe-area-left));
+        padding-right: max(var(--spacing-md), var(--safe-area-right));
+    }
+
+    #back-to-top {
+        bottom: max(var(--spacing-xl), calc(var(--safe-area-bottom) + var(--spacing-md)));
+        right: max(var(--spacing-xl), calc(var(--safe-area-right) + var(--spacing-md)));
+    }
+
+    .modal-content {
+        padding-bottom: max(var(--spacing-xl), var(--safe-area-bottom));
+    }
+}
+
+/* Print styles */
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        padding: 0;
+    }
+
+    .site-header,
+    .hamburger,
+    .theme-toggle,
+    #back-to-top,
+    .modal,
+    .timeline-button {
+        display: none !important;
+    }
+
+    header,
+    footer,
+    section {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    section {
+        padding-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    section::before {
+        border-top-color: #ccc;
+    }
+
+    .hero {
+        padding-top: 0;
+    }
+
+    .hero h1 {
+        font-size: 24pt;
+        background: none;
+        -webkit-text-fill-color: black;
+    }
+
+    h2 {
+        font-size: 16pt;
+    }
+
+    h3 {
+        font-size: 12pt;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
+    .project-link::after {
+        content: "";
+    }
+
+    .timeline::before {
+        background: #ccc;
+    }
+
+    .timeline-marker {
+        border-color: black;
+        background: white;
+    }
+
+    .timeline-content,
+    .project-card {
+        border-color: #ccc;
+    }
+
+    .projects-grid {
+        display: block;
+    }
+
+    .project-card {
+        margin-bottom: 1em;
+        page-break-inside: avoid;
+    }
+
+    .pill {
+        border-color: #ccc;
+        padding: 0.2em 0.5em;
+    }
+
+    .tags {
+        gap: 0.3em;
+    }
+
+    footer {
+        border-top-color: #ccc;
+    }
+
+    .footer-nav a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
 }
